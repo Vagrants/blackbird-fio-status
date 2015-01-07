@@ -29,3 +29,17 @@ group = root
 
 `blackbird-fio-status` module discovers device name and vsu name.
 
+## Install
+
+You can install by pip.
+
+```
+$ pip install git+https://github.com/Vagrants/blackbird-fio-status.git
+```
+
+Or you can also install rpm package from [blackbird repository](https://github.com/Vagrants/blackbird/blob/master/README.md).
+
+```
+$ sudo yum install blackbird-fio-status --enablerepo=blackbird
+```
+
