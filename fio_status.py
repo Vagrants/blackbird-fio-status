@@ -1,7 +1,8 @@
 """
 blackbird fio-status module
 
-'/usr/bin/fio-status' needs root privilege, so blackbird user (default bbd) must be able to sudo with NOPASSWD.
+'/usr/bin/fio-status' needs root privilege,
+so blackbird user (default bbd) must be able to sudo with NOPASSWD.
 
 # cat /etc/sudoers.d/bbd
 Defaults:bbd !requiretty
@@ -83,6 +84,7 @@ class ConcreteJob(base.JobBase):
         if 'version' in fio:
             self._fio_version(fio['version'])
 
+    # pylint: disable=too-many-locals
     def fio_lld(self):
         """
         discover adapter number, device name, and vsu name
@@ -112,7 +114,6 @@ class ConcreteJob(base.JobBase):
                             '{#DEVICE}': device_name,
                         })
 
-                    if 'vsu' in iomemory:
                         for vsu in iomemory['vsu']:
                             vsu_name = vsu['device_path']
                             _vsu_list.append({
@@ -125,7 +126,7 @@ class ConcreteJob(base.JobBase):
         if 'host' in fio:
 
             host_index = 0
-            for host in fio['host']:
+            for _ in fio['host']:
                 host_index += 1
                 host_name = 'host{hindex}'.format(hindex=host_index)
                 _host_list.append({'{#HOST}': host_name})
