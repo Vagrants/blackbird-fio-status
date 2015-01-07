@@ -1,0 +1,5 @@
+include fio_status.py
+include fio_status.cfg
+include README.md
+include CHANGELOG.md
+include PROJECT.txt
